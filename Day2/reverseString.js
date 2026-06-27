@@ -1,12 +1,17 @@
 function reverseString(word)
 {
-    let words=word.split("").reverse().join("")
-    console.log("The given word is ",word )
-    console.log("The reversed word is ",words);
-    if(words===word)
-        console.log("The given word ",word, "  is a palindrome")
+    let words=word.split("")
+    let output=""
+    let length=word.length
+    for(index =length-1;index>=0;index--)
+    {
+        output=output+words[index]
+    }
+    console.log("The reversed word is ", output);
+    if(output==word)
+        console.log("The given word is a palindrome");
     else
-        console.log("The given word ",word," is not a palindrome" );
+        console.log("The given word is not a palindrome");
 }
 reverseString("madam")
 reverseString("racecar")
