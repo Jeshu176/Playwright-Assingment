@@ -18,6 +18,6 @@ test("Interact Using CSS",async({page})=>
     await page.locator('#createLeadForm_primaryPhoneNumber').fill('9940994484')//Fill Phonenumber
     await page.locator('.smallSubmit').click();//Click Create Lead
     console.log(await page.title());//Get page title
-    await page.waitForTimeout(7000)
+    await page.waitForTimeout(3000)
 }
 )
