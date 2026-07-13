@@ -75,6 +75,7 @@ test("Create an account - Salesforce",async({page})=>
     await page.waitForTimeout(8000)
     await expect (page.locator('//mark[text()="Service"]').nth(0)).toBeVisible({timeout:8000})
     await page.locator('//mark[text()="Service"]').nth(0).click()
+    await expect (page.locator('[title="Accounts"]')).toBeVisible({timeout:8000})
     await page.locator('[title="Accounts"]').click()
     await expect (page.getByRole("button",{name:"New"})).toBeVisible({timeout:10000})
     await page.getByRole("button",{name:"New"}).click()
