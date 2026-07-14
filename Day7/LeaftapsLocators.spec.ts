@@ -66,10 +66,10 @@ test("Create an account - Salesforce",async({page})=>
 {
     page.goto('https://orgfarm-6c52dab5cf-dev-ed.develop.my.salesforce-setup.com/lightning/setup/SetupOneHome/home?SetupDomainReload=1&SetupDomainProbePassed=true')
     page.waitForTimeout(5000)
-    await expect (page.locator('.slds-icon-waffle')).toBeVisible({timeout:15000})
-    await page.locator('.slds-icon-waffle').click()
     console.log(await page.url())
     console.log(await page.title())
+    await expect (page.locator('.slds-icon-waffle')).toBeVisible({timeout:15000})
+    await page.locator('.slds-icon-waffle').click()
     await page.getByText("View All",{exact:true}).click()
     await page.getByPlaceholder("Search apps or items...",{exact:true}).fill('Service')
     await page.waitForTimeout(8000)
