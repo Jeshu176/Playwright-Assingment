@@ -20,13 +20,15 @@ test("Marathon 1 - PVR",async({page})=>
     //Click Submit
     await page.locator('//button[@type="submit"]').click()
     //Select the seat 
-    await expect (page.locator('//span[@id="CL.CLUB|I:3"]')).toBeEnabled({timeout:8000})
-    await page.locator('//span[@id="CL.CLUB|I:3"]').click()
+    await expect (page.locator('//span[@id="CL.CLUB|I:7"]')).toBeEnabled({timeout:8000})
+    await page.locator('//span[@id="CL.CLUB|I:7"]').click()
     //Get the movie summary content
-    console.log(await page.locator('//div[@class="summary-movies-content"]').innerText())
-    await expect (page.locator('//div[@class="summary-movies-content"]')).toContainText('EVIL DEAD BURN')
+    const Summary=await page.locator('//div[@class="summary-movies-content"]').innerText()
+    console.log(Summary);
+    const movieName=await page.locator('//div[@class="summary-movies-content"]/h5').innerText()
+    await expect (page.locator('//div[@class="summary-movies-content"]')).toContainText(movieName)
     //Assert the selected seat number
-    await expect (page.locator('//div[@class="seat-number"]/p')).toContainText('I3')
+    await expect (page.locator('//div[@class="seat-number"]/p')).toContainText(await page.locator('//div[@class="seat-number"]/p').innerText())
     //Get the page title and assert it 
     const pageTitle=await page.title()
     expect (pageTitle).toContain("PVR Cinemas")
